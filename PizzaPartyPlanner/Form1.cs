@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace PizzaPartyPlanner
 {
-    public partial class txtNotes : Form
+    public partial class frmPizzaParty : Form
     {
-        public txtNotes()
+        public frmPizzaParty()
         {
             InitializeComponent();
         }
@@ -39,10 +39,11 @@ namespace PizzaPartyPlanner
             }
         }
 
+        
         private void brnAdd_Click(object sender, EventArgs e)
         {
             //TODO capture pizza infomration and add it to our gridview
-            addPizza(cboPizzaSize.SelectedText, cboPizzaType.SelectedText, cboSlices, );
+            addPizza(cboPizzaSize.SelectedText, cboPizzaType.SelectedText, cboSlices.SelectedText, txtNotes.Text, Decimal.Parse(lblPizzaCost.Text));
             //TODO calculate cost of this pizza
         }
 
@@ -56,7 +57,6 @@ namespace PizzaPartyPlanner
             if (lstPizzaType.SelectedIndex >-1)
             {
             
-            lstPizzaType.Items.RemoveAt(lstPizzaType.SelectedIndex);
             }
 
         }

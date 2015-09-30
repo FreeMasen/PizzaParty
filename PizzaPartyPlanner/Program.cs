@@ -16,7 +16,7 @@ namespace PizzaPartyPlanner
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new txtNotes());
+            Application.Run(new frmPizzaParty());
         }
     }
 }

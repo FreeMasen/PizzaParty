@@ -1,6 +1,6 @@
 ﻿namespace PizzaPartyPlanner
 {
-    partial class txtNotes
+    partial class frmPizzaParty
     {
         /// <summary>
         /// Required designer variable.
@@ -49,7 +49,7 @@
             this.ckbPep = new System.Windows.Forms.CheckBox();
             this.cboSlices = new System.Windows.Forms.ComboBox();
             this.lblSlices = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtNotes = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lblPizzaCost = new System.Windows.Forms.Label();
@@ -294,13 +294,13 @@
             this.lblSlices.TabIndex = 9;
             this.lblSlices.Text = "Number of slices";
             // 
-            // textBox1
+            // txtNotes
             // 
-            this.textBox1.Location = new System.Drawing.Point(127, 155);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(121, 71);
-            this.textBox1.TabIndex = 10;
+            this.txtNotes.Location = new System.Drawing.Point(127, 155);
+            this.txtNotes.Multiline = true;
+            this.txtNotes.Name = "txtNotes";
+            this.txtNotes.Size = new System.Drawing.Size(121, 71);
+            this.txtNotes.TabIndex = 10;
             // 
             // label1
             // 
@@ -393,7 +393,7 @@
             this.textBox2.Size = new System.Drawing.Size(287, 186);
             this.textBox2.TabIndex = 21;
             // 
-            // txtNotes
+            // frmPizzaParty
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -408,7 +408,7 @@
             this.Controls.Add(this.lblPizzaCost);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtNotes);
             this.Controls.Add(this.lblSlices);
             this.Controls.Add(this.cboSlices);
             this.Controls.Add(this.groupBox2);
@@ -418,7 +418,8 @@
             this.Controls.Add(this.lblPizzaSize);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.cboPizzaSize);
-            this.Name = "txtNotes";
+            this.Name = "frmPizzaParty";
+            this.Text = "Pizza Party Planner";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -442,7 +443,7 @@
         private System.Windows.Forms.CheckBox ckbPep;
         private System.Windows.Forms.ComboBox cboSlices;
         private System.Windows.Forms.Label lblSlices;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtNotes;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.CheckBox ckbArtichoke;
         private System.Windows.Forms.CheckBox ckbOlives;

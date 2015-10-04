@@ -28,8 +28,19 @@ namespace PizzaPartyPlanner
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-            File.WriteAllText(path, txtReport.Text);
+            try
+            {
+                SaveFileDialog saveFile = new SaveFileDialog();
+                saveFile.Filter = "Text (*.txt)|*.txt";
+                saveFile.ShowDialog();
+                string path = saveFile.FileName;
+                File.WriteAllText(path, txtReport.Text);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, this.Name);
+            }
+            
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -44,20 +55,25 @@ namespace PizzaPartyPlanner
             try
             {
                 decimal totalCost = 0;
-
+                string nl = System.Environment.NewLine;
                 foreach (List<string> za in Pizzas)
                 {
-                    string name = string.Format("{0} {1} \n", za[1], za[2]);
-                    string notes = string.Format("{0} slices \n {1} \n {2:C}", za[3], za[4], za[5]);
+                    string name = string.Format("{0} {1} {2}", za[0], za[1], nl);
+                    string notes = string.Format("     {0} slices {1}      {2} {3}      {4:C}", za[2], nl, za[3], nl, za[4]);
                     txtReport.Text += name;
-                    txtReport.Text += notes;
-                    totalCost += decimal.Parse(za[5]);
+                    txtReport.Text += notes + nl;
+                    totalCost += decimal.Parse(za[4]);
                 }
-                txtReport.Text += string.Format("\n {0:C}", totalCost.ToString());
+                txtReport.Text += nl + "Total" + nl + "-----------" + nl;
+                txtReport.Text += string.Format("{0:C}", totalCost.ToString());
             }
-            catch (Exception)
+            catch (NullReferenceException)
             {
                 txtReport.Text = "No Pizzas in this Plan";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, this.Name);
             }
         }
     }

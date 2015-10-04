@@ -87,9 +87,20 @@ namespace PizzaPartyPlanner
             //check that something is selected
             if (lstPizzaType.SelectedIndex > -1)
             {
-                //TODO update the txtbox to reflect the 
-
+                List<string> pizza = Pizzas[lstPizzaType.SelectedIndex];
+                txtDisplayNotes.Text = pizza[3];
             }
+        }
+
+        private void frmPizzaParty_Load(object sender, EventArgs e)
+        {
+            string size = "Large";
+            string type = "Surpreme";
+            string slices = "8";
+            string notes = "No cheese, extra arugula";
+            decimal price = 19.50m;
+            addPizza(size, type, slices, notes, price);
+            updateLst();
         }
     }
 }

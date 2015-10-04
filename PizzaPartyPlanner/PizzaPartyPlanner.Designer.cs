@@ -59,7 +59,8 @@
             this.lblTotal = new System.Windows.Forms.Label();
             this.lstPizzaType = new System.Windows.Forms.ListBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtDisplayNotes = new System.Windows.Forms.TextBox();
+            this.btnClear = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.grpToppings.SuspendLayout();
             this.SuspendLayout();
@@ -331,9 +332,9 @@
             // 
             // btnReport
             // 
-            this.btnReport.Location = new System.Drawing.Point(12, 519);
+            this.btnReport.Location = new System.Drawing.Point(239, 488);
             this.btnReport.Name = "btnReport";
-            this.btnReport.Size = new System.Drawing.Size(127, 23);
+            this.btnReport.Size = new System.Drawing.Size(98, 44);
             this.btnReport.TabIndex = 15;
             this.btnReport.Text = "Create Report";
             this.btnReport.UseVisualStyleBackColor = true;
@@ -341,18 +342,18 @@
             // 
             // btnRemove
             // 
-            this.btnRemove.Location = new System.Drawing.Point(202, 519);
+            this.btnRemove.Location = new System.Drawing.Point(12, 488);
             this.btnRemove.Name = "btnRemove";
-            this.btnRemove.Size = new System.Drawing.Size(75, 23);
+            this.btnRemove.Size = new System.Drawing.Size(83, 44);
             this.btnRemove.TabIndex = 16;
-            this.btnRemove.Text = "Remove";
+            this.btnRemove.Text = "Remove Selected";
             this.btnRemove.UseVisualStyleBackColor = true;
             this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(423, 524);
+            this.label3.Location = new System.Drawing.Point(417, 488);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(31, 13);
             this.label3.TabIndex = 17;
@@ -361,7 +362,7 @@
             // lblTotal
             // 
             this.lblTotal.AutoSize = true;
-            this.lblTotal.Location = new System.Drawing.Point(482, 524);
+            this.lblTotal.Location = new System.Drawing.Point(492, 488);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(34, 13);
             this.lblTotal.TabIndex = 18;
@@ -385,20 +386,30 @@
             this.label4.TabIndex = 20;
             this.label4.Text = "Pizza";
             // 
-            // textBox2
+            // txtDisplayNotes
             // 
-            this.textBox2.Location = new System.Drawing.Point(239, 296);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(287, 186);
-            this.textBox2.TabIndex = 21;
+            this.txtDisplayNotes.Location = new System.Drawing.Point(239, 296);
+            this.txtDisplayNotes.Multiline = true;
+            this.txtDisplayNotes.Name = "txtDisplayNotes";
+            this.txtDisplayNotes.Size = new System.Drawing.Size(287, 186);
+            this.txtDisplayNotes.TabIndex = 21;
+            // 
+            // btnClear
+            // 
+            this.btnClear.Location = new System.Drawing.Point(137, 488);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(75, 44);
+            this.btnClear.TabIndex = 22;
+            this.btnClear.Text = "Remove All";
+            this.btnClear.UseVisualStyleBackColor = true;
             // 
             // frmPizzaParty
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(529, 573);
-            this.Controls.Add(this.textBox2);
+            this.ClientSize = new System.Drawing.Size(529, 546);
+            this.Controls.Add(this.btnClear);
+            this.Controls.Add(this.txtDisplayNotes);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.lstPizzaType);
             this.Controls.Add(this.lblTotal);
@@ -420,6 +431,7 @@
             this.Controls.Add(this.cboPizzaSize);
             this.Name = "frmPizzaParty";
             this.Text = "Pizza Party Planner";
+            this.Load += new System.EventHandler(this.frmPizzaParty_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.grpToppings.ResumeLayout(false);
@@ -462,7 +474,8 @@
         private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.ListBox lstPizzaType;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtDisplayNotes;
+        private System.Windows.Forms.Button btnClear;
     }
 }
 

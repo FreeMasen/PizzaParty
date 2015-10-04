@@ -39,22 +39,43 @@ namespace PizzaPartyPlanner
             }
         }
 
-        
+
+        private String getNotes()
+        {
+
+            string notes = txtNotes.Text;
+            string toppings = "Toppings: ";
+            foreach (var ctrl in grpToppings.Controls.OfType<CheckBox>().Where(t => t.Checked))
+            {
+                notes += ctrl.Text;
+
+            }
+            notes += " ";
+            notes += toppings;
+
+            return notes;
+
+        }
+
         private void brnAdd_Click(object sender, EventArgs e)
         {
             //TODO capture pizza infomration and add it to our gridview
-            addPizza(cboPizzaSize.SelectedText, cboPizzaType.SelectedText, cboSlices.SelectedText, txtNotes.Text, Decimal.Parse(lblPizzaCost.Text));
+            addPizza(cboPizzaSize.SelectedText, cboPizzaType.SelectedText, cboSlices.SelectedText, getNotes(), Decimal.Parse(lblPizzaCost.Text));
             //TODO calculate cost of this pizza
         }
 
         private void btnReport_Click(object sender, EventArgs e)
         {
             //TODO create a form window that will pop-up when thsi is ckicked
+            
+            Report form2 = new Report(Pizzas, this);
+            form2.Show();
+            this.Visible = false;
         }
 
         private void btnRemove_Click(object sender, EventArgs e)
         {
-            if (lstPizzaType.SelectedIndex >-1)
+            if (lstPizzaType.SelectedIndex > -1)
             {
             
             }
@@ -67,6 +88,7 @@ namespace PizzaPartyPlanner
             if (lstPizzaType.SelectedIndex > -1)
             {
                 //TODO update the txtbox to reflect the 
+
             }
         }
     }

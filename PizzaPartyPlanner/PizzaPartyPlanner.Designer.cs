@@ -36,7 +36,7 @@
             this.cboPizzaType = new System.Windows.Forms.ComboBox();
             this.lblPizzaType = new System.Windows.Forms.Label();
             this.brnAdd = new System.Windows.Forms.Button();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.grpToppings = new System.Windows.Forms.GroupBox();
             this.ckbArtichoke = new System.Windows.Forms.CheckBox();
             this.ckbOlives = new System.Windows.Forms.CheckBox();
             this.ckbOions = new System.Windows.Forms.CheckBox();
@@ -61,7 +61,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.grpToppings.SuspendLayout();
             this.SuspendLayout();
             // 
             // cboPizzaSize
@@ -153,24 +153,24 @@
             this.brnAdd.UseVisualStyleBackColor = true;
             this.brnAdd.Click += new System.EventHandler(this.brnAdd_Click);
             // 
-            // groupBox2
+            // grpToppings
             // 
-            this.groupBox2.Controls.Add(this.ckbArtichoke);
-            this.groupBox2.Controls.Add(this.ckbOlives);
-            this.groupBox2.Controls.Add(this.ckbOions);
-            this.groupBox2.Controls.Add(this.ckbPeppers);
-            this.groupBox2.Controls.Add(this.ckbMushrooms);
-            this.groupBox2.Controls.Add(this.ckbBeef);
-            this.groupBox2.Controls.Add(this.ckbBacon);
-            this.groupBox2.Controls.Add(this.ckbHam);
-            this.groupBox2.Controls.Add(this.ckbSausage);
-            this.groupBox2.Controls.Add(this.ckbPep);
-            this.groupBox2.Location = new System.Drawing.Point(277, 20);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(221, 151);
-            this.groupBox2.TabIndex = 3;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Toppings sm-$0.25, md-$0.50 lg-$0.75";
+            this.grpToppings.Controls.Add(this.ckbArtichoke);
+            this.grpToppings.Controls.Add(this.ckbOlives);
+            this.grpToppings.Controls.Add(this.ckbOions);
+            this.grpToppings.Controls.Add(this.ckbPeppers);
+            this.grpToppings.Controls.Add(this.ckbMushrooms);
+            this.grpToppings.Controls.Add(this.ckbBeef);
+            this.grpToppings.Controls.Add(this.ckbBacon);
+            this.grpToppings.Controls.Add(this.ckbHam);
+            this.grpToppings.Controls.Add(this.ckbSausage);
+            this.grpToppings.Controls.Add(this.ckbPep);
+            this.grpToppings.Location = new System.Drawing.Point(277, 20);
+            this.grpToppings.Name = "grpToppings";
+            this.grpToppings.Size = new System.Drawing.Size(221, 151);
+            this.grpToppings.TabIndex = 3;
+            this.grpToppings.TabStop = false;
+            this.grpToppings.Text = "Toppings sm-$0.25, md-$0.50 lg-$0.75";
             // 
             // ckbArtichoke
             // 
@@ -411,7 +411,7 @@
             this.Controls.Add(this.txtNotes);
             this.Controls.Add(this.lblSlices);
             this.Controls.Add(this.cboSlices);
-            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.grpToppings);
             this.Controls.Add(this.brnAdd);
             this.Controls.Add(this.lblPizzaType);
             this.Controls.Add(this.cboPizzaType);
@@ -422,8 +422,8 @@
             this.Text = "Pizza Party Planner";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.grpToppings.ResumeLayout(false);
+            this.grpToppings.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -439,7 +439,7 @@
         private System.Windows.Forms.ComboBox cboPizzaType;
         private System.Windows.Forms.Label lblPizzaType;
         private System.Windows.Forms.Button brnAdd;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox grpToppings;
         private System.Windows.Forms.CheckBox ckbPep;
         private System.Windows.Forms.ComboBox cboSlices;
         private System.Windows.Forms.Label lblSlices;

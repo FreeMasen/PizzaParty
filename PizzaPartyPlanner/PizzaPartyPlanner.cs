@@ -17,8 +17,21 @@ namespace PizzaPartyPlanner
             InitializeComponent();
         }
 
+
+        /// <summary>
+        /// This stores a list of lists
+        /// the inner list is strings which will represent our pizza
+        /// </summary>
         List<List<string>> Pizzas = new List<List<string>>();
 
+        /// <summary>
+        /// This method adds a pizza to the list of strings
+        /// </summary>
+        /// <param name="size"></param>
+        /// <param name="type"></param>
+        /// <param name="slices"></param>
+        /// <param name="notes"></param>
+        /// <param name="price"></param>
         private void addPizza(string size, string type, string slices, string notes, decimal price)
         {
             List<string> pizza = new List<string>();
@@ -30,43 +43,145 @@ namespace PizzaPartyPlanner
             Pizzas.Add(pizza);
         }
 
-        private void updateLst()
+        /// <summary>
+        /// This method updates our listbox and total cost of added pizzas
+        /// </summary>
+        private void updateVisual()
         {
             lstPizzaType.Items.Clear();
-            foreach (var pizza in Pizzas)
+            foreach (List<string> pizza in Pizzas)
             {
                 lstPizzaType.Items.Add(string.Format("{0} {1}", pizza[0], pizza[1]));
             }
+            decimal totalCost = 0m;
+            foreach (List<string> za in Pizzas)
+            {
+                totalCost += Decimal.Parse(za[4]);
+            }
+            lblTotal.Text = totalCost.ToString();
         }
 
-
+        /// <summary>
+        /// this method returns a string
+        /// information about our pizza
+        /// it combines the toppings selected
+        /// by the user with any notes that were entered
+        /// </summary>
+        /// <returns></returns>
         private String getNotes()
         {
-
-            string notes = txtNotes.Text;
-            string toppings = "Toppings: ";
+            string nl = System.Environment.NewLine;
+            string notes = "Notes:" + nl + "    " + txtNotes.Text + nl;
+            string toppings = "Toppings:" ;
+            int counter = 0;
             foreach (var ctrl in grpToppings.Controls.OfType<CheckBox>().Where(t => t.Checked))
             {
-                notes += ctrl.Text;
-
+                toppings += nl + "   " + ctrl.Text;
+                counter += 1;
             }
-            notes += " ";
-            notes += toppings;
-
+            if (counter > 0)
+            {
+                notes += toppings;
+            }
             return notes;
 
         }
 
+        /// <summary>
+        /// this method returns a integer that 
+        /// is equal to the number of selected toppings
+        /// </summary>
+        /// <returns></returns>
+        private int getNumTops()
+        {
+            int numTops = 0;
+            foreach (var ctrl in grpToppings.Controls.OfType<CheckBox>().Where(t => t.Checked))
+            {
+                numTops += 1;
+            }
+            return numTops;
+        }
+
+        /// <summary>
+        /// this method returns the price of a pizza
+        /// it checks the size and pizza type before calculating
+        /// this method calls the getNumTops method
+        /// </summary>
+        /// <returns></returns>
+        private decimal calculatePrice()
+        {
+            decimal total = 0.00m;
+            decimal toppingCost = 0m;
+            decimal basePrice = 0m;
+            int numTops = getNumTops();
+          
+            int pizza = cboPizzaType.SelectedIndex;
+            int size = cboPizzaSize.SelectedIndex;
+
+            switch (size)
+            {
+                case 0:
+                    toppingCost = 0.25m;
+                    basePrice = 16.99m;
+                    break;
+                case 1:
+                    toppingCost = 0.50m;
+                    basePrice = 18.99m;
+                    break;
+                case 2:
+                    toppingCost = 0.75m;
+                    basePrice = 21.99m;
+                    break;
+         }
+            switch (pizza)
+            {
+                case 0: //Build Your Own
+
+                    total = basePrice + (toppingCost * numTops);
+                    
+                    break;
+                default: //Speciality Pizzas
+                    total = basePrice + 2 + (toppingCost * numTops);
+                    break;
+
+
+            }
+            return total;
+        }
+
+        /// <summary>
+        /// this method acts as event handler for anytime
+        /// a topping is added or removed as well as when
+        /// the pizza type or size is changed.
+        /// It updates the cost the pizza that has not yet
+        /// been added to the list
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void changeCost(object sender, EventArgs e)
+        {
+            lblPizzaCost.Text = calculatePrice().ToString();
+        }
+
+
         private void brnAdd_Click(object sender, EventArgs e)
         {
-            //TODO capture pizza infomration and add it to our gridview
-            addPizza(cboPizzaSize.SelectedText, cboPizzaType.SelectedText, cboSlices.SelectedText, getNotes(), Decimal.Parse(lblPizzaCost.Text));
-            //TODO calculate cost of this pizza
+            addPizza(cboPizzaSize.SelectedItem.ToString(), cboPizzaType.SelectedItem.ToString(), cboSlices.SelectedItem.ToString(), getNotes(), Decimal.Parse(lblPizzaCost.Text));
+            cboPizzaType.SelectedIndex = 0;
+            cboPizzaSize.SelectedIndex = 0;
+            cboSlices.SelectedIndex = 0;
+            txtNotes.Text = "";
+            foreach (var ctrl in grpToppings.Controls.OfType<CheckBox>().Where(t=>t.Checked))
+            {
+                ctrl.Checked = false;
+            }
+            updateVisual();
+
+
         }
 
         private void btnReport_Click(object sender, EventArgs e)
         {
-            //TODO create a form window that will pop-up when thsi is ckicked
             
             Report form2 = new Report(Pizzas, this);
             form2.Show();
@@ -77,9 +192,9 @@ namespace PizzaPartyPlanner
         {
             if (lstPizzaType.SelectedIndex > -1)
             {
-            
+            Pizzas.RemoveAt(lstPizzaType.SelectedIndex);
             }
-
+            updateVisual();
         }
 
         private void lstPizzaType_SelectedIndexChanged(object sender, EventArgs e)
@@ -87,20 +202,20 @@ namespace PizzaPartyPlanner
             //check that something is selected
             if (lstPizzaType.SelectedIndex > -1)
             {
+                txtDisplayNotes.Clear();
                 List<string> pizza = Pizzas[lstPizzaType.SelectedIndex];
-                txtDisplayNotes.Text = pizza[3];
+                txtDisplayNotes.Text += "Number of Slices:" + System.Environment.NewLine + pizza[2] + System.Environment.NewLine;
+                txtDisplayNotes.Text += pizza[3];
             }
         }
 
         private void frmPizzaParty_Load(object sender, EventArgs e)
         {
-            string size = "Large";
-            string type = "Surpreme";
-            string slices = "8";
-            string notes = "No cheese, extra arugula";
-            decimal price = 19.50m;
-            addPizza(size, type, slices, notes, price);
-            updateLst();
+            //ensure that these 3 text boxes cannot be empty
+            cboPizzaType.SelectedIndex = 0;
+            cboPizzaSize.SelectedIndex = 0;
+            cboSlices.SelectedIndex = 0;
+            updateVisual();
         }
     }
 }

@@ -59,7 +59,7 @@ namespace PizzaPartyPlanner
                 foreach (List<string> za in Pizzas)
                 {
                     string name = string.Format("{0} {1} {2}", za[0], za[1], nl);
-                    string notes = string.Format("     {0} slices {1}      {2} {3}      {4:C}", za[2], nl, za[3], nl, za[4]);
+                    string notes = string.Format("    {0} slices {1}    {2} {3}      {4:C}", za[2], nl, za[3], nl, za[4]);
                     txtReport.Text += name;
                     txtReport.Text += notes + nl;
                     totalCost += decimal.Parse(za[4]);

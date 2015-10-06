@@ -59,17 +59,22 @@ namespace PizzaPartyPlanner
 
         private void brnAdd_Click(object sender, EventArgs e)
         {
-            //TODO capture pizza infomration and add it to our gridview
+            //TODO add data validation
             addPizza(cboPizzaSize.SelectedText, cboPizzaType.SelectedText, cboSlices.SelectedText, getNotes(), Decimal.Parse(lblPizzaCost.Text));
             //TODO calculate cost of this pizza
+
         }
 
         private void btnReport_Click(object sender, EventArgs e)
         {
-            //TODO create a form window that will pop-up when thsi is ckicked
-            
+            //create a new for and pass the list of pizzas and 
+            //this for to it via the constructor
             Report form2 = new Report(Pizzas, this);
+
+            //show the new form
             form2.Show();
+
+            //hide this form
             this.Visible = false;
         }
 
@@ -92,15 +97,6 @@ namespace PizzaPartyPlanner
             }
         }
 
-        private void frmPizzaParty_Load(object sender, EventArgs e)
-        {
-            string size = "Large";
-            string type = "Surpreme";
-            string slices = "8";
-            string notes = "No cheese, extra arugula";
-            decimal price = 19.50m;
-            addPizza(size, type, slices, notes, price);
-            updateLst();
-        }
+        
     }
 }

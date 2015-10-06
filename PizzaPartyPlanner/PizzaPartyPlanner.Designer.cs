@@ -431,7 +431,6 @@
             this.Controls.Add(this.cboPizzaSize);
             this.Name = "frmPizzaParty";
             this.Text = "Pizza Party Planner";
-            this.Load += new System.EventHandler(this.frmPizzaParty_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.grpToppings.ResumeLayout(false);

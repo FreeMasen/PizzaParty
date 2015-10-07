@@ -57,11 +57,82 @@ namespace PizzaPartyPlanner
 
         }
 
+        private bool isValid()
+        {
+            bool isIt = true;
+            if (cboPizzaType.SelectedIndex <= -1)
+            {
+                
+                isIt = false;
+            }
+            if (cboPizzaSize.SelectedIndex <= -1)
+            {
+                isIt = false;
+            }
+            if (cboSlices.SelectedIndex <= -1)
+            {
+                isIt = false;
+            }
+            return isIt;
+        }
+
+        private decimal subTotal;
+
+        private void checkbos(object sender, EventArgs e)
+        {
+
+            CheckBox checkbos = (CheckBox) sender;
+            if (checkbos.Checked)
+            {
+                subTotal += .50m;
+            }
+            else
+            {
+                {
+                    subTotal -=.50m;
+                }
+            }
+            lblPizzaCost.Text = string.Format("{0:C}",subTotal);
+        }
+
+        private void updatTotal()
+        {
+
+            decimal Total = 0;
+            foreach (var Pizza in Pizzas)
+            {
+                decimal subTotal;
+                decimal.TryParse(Pizza[4], out subTotal);
+                Total += subTotal;
+            }
+            lblTotal.Text = string.Format("{0:C}", Total);
+        }
+
         private void brnAdd_Click(object sender, EventArgs e)
         {
-            //TODO add data validation
-            addPizza(cboPizzaSize.SelectedText, cboPizzaType.SelectedText, cboSlices.SelectedText, getNotes(), Decimal.Parse(lblPizzaCost.Text));
-            //TODO calculate cost of this pizza
+            if (isValid())
+            {
+            
+            decimal price;
+            string sPrice = lblPizzaCost.Text.Substring(1);
+                if (decimal.TryParse(sPrice, out price))
+                {
+                    addPizza(cboPizzaSize.Text, cboPizzaType.Text, cboSlices.Text, getNotes(),
+                        9.99m);
+                    updateLst();
+                    updatTotal();
+                }
+
+            }
+
+    else
+            {
+            
+               MessageBox.Show("Plese make sure that you have selected something from each dropdown", this.Text);
+        }
+
+        //TODO calculate cost of this pizza
+
 
         }
 
@@ -82,7 +153,8 @@ namespace PizzaPartyPlanner
         {
             if (lstPizzaType.SelectedIndex > -1)
             {
-            
+                Pizzas.RemoveAt(lstPizzaType.SelectedIndex);
+            updateLst();
             }
 
         }
@@ -97,6 +169,10 @@ namespace PizzaPartyPlanner
             }
         }
 
-        
+        private void cboPizzaSize_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            subTotal = 9.99m;
+            lblPizzaCost.Text = string.Format("{0:C}", subTotal.ToString());
+        }
     }
 }

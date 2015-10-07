@@ -67,6 +67,7 @@
             // 
             // cboPizzaSize
             // 
+            this.cboPizzaSize.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboPizzaSize.FormattingEnabled = true;
             this.cboPizzaSize.Items.AddRange(new object[] {
             "Small",
@@ -76,6 +77,7 @@
             this.cboPizzaSize.Name = "cboPizzaSize";
             this.cboPizzaSize.Size = new System.Drawing.Size(121, 21);
             this.cboPizzaSize.TabIndex = 0;
+            this.cboPizzaSize.SelectedIndexChanged += new System.EventHandler(this.cboPizzaSize_SelectedIndexChanged);
             // 
             // rdoBYO
             // 
@@ -121,6 +123,7 @@
             // 
             // cboPizzaType
             // 
+            this.cboPizzaType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboPizzaType.FormattingEnabled = true;
             this.cboPizzaType.Items.AddRange(new object[] {
             "Surpreme",
@@ -134,6 +137,7 @@
             this.cboPizzaType.Name = "cboPizzaType";
             this.cboPizzaType.Size = new System.Drawing.Size(121, 21);
             this.cboPizzaType.TabIndex = 5;
+            this.cboPizzaType.SelectedIndexChanged += new System.EventHandler(this.cboPizzaSize_SelectedIndexChanged);
             // 
             // lblPizzaType
             // 
@@ -182,6 +186,7 @@
             this.ckbArtichoke.TabIndex = 9;
             this.ckbArtichoke.Text = "Artichoke";
             this.ckbArtichoke.UseVisualStyleBackColor = true;
+            this.ckbArtichoke.CheckedChanged += new System.EventHandler(this.checkbos);
             // 
             // ckbOlives
             // 
@@ -192,6 +197,7 @@
             this.ckbOlives.TabIndex = 8;
             this.ckbOlives.Text = "Olives";
             this.ckbOlives.UseVisualStyleBackColor = true;
+            this.ckbOlives.CheckedChanged += new System.EventHandler(this.checkbos);
             // 
             // ckbOions
             // 
@@ -202,6 +208,7 @@
             this.ckbOions.TabIndex = 7;
             this.ckbOions.Text = "Onions";
             this.ckbOions.UseVisualStyleBackColor = true;
+            this.ckbOions.CheckedChanged += new System.EventHandler(this.checkbos);
             // 
             // ckbPeppers
             // 
@@ -212,6 +219,7 @@
             this.ckbPeppers.TabIndex = 6;
             this.ckbPeppers.Text = "Peppers";
             this.ckbPeppers.UseVisualStyleBackColor = true;
+            this.ckbPeppers.CheckedChanged += new System.EventHandler(this.checkbos);
             // 
             // ckbMushrooms
             // 
@@ -222,6 +230,7 @@
             this.ckbMushrooms.TabIndex = 5;
             this.ckbMushrooms.Text = "Mushrooms";
             this.ckbMushrooms.UseVisualStyleBackColor = true;
+            this.ckbMushrooms.CheckedChanged += new System.EventHandler(this.checkbos);
             // 
             // ckbBeef
             // 
@@ -232,6 +241,7 @@
             this.ckbBeef.TabIndex = 4;
             this.ckbBeef.Text = "Beef";
             this.ckbBeef.UseVisualStyleBackColor = true;
+            this.ckbBeef.CheckedChanged += new System.EventHandler(this.checkbos);
             // 
             // ckbBacon
             // 
@@ -242,6 +252,7 @@
             this.ckbBacon.TabIndex = 3;
             this.ckbBacon.Text = "Bacon";
             this.ckbBacon.UseVisualStyleBackColor = true;
+            this.ckbBacon.CheckedChanged += new System.EventHandler(this.checkbos);
             // 
             // ckbHam
             // 
@@ -252,6 +263,7 @@
             this.ckbHam.TabIndex = 2;
             this.ckbHam.Text = "Ham";
             this.ckbHam.UseVisualStyleBackColor = true;
+            this.ckbHam.CheckedChanged += new System.EventHandler(this.checkbos);
             // 
             // ckbSausage
             // 
@@ -262,6 +274,7 @@
             this.ckbSausage.TabIndex = 1;
             this.ckbSausage.Text = "Sausage";
             this.ckbSausage.UseVisualStyleBackColor = true;
+            this.ckbSausage.CheckedChanged += new System.EventHandler(this.checkbos);
             // 
             // ckbPep
             // 
@@ -272,9 +285,11 @@
             this.ckbPep.TabIndex = 0;
             this.ckbPep.Text = "Peproni";
             this.ckbPep.UseVisualStyleBackColor = true;
+            this.ckbPep.CheckedChanged += new System.EventHandler(this.checkbos);
             // 
             // cboSlices
             // 
+            this.cboSlices.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboSlices.FormattingEnabled = true;
             this.cboSlices.Items.AddRange(new object[] {
             "4",
@@ -285,6 +300,7 @@
             this.cboSlices.Name = "cboSlices";
             this.cboSlices.Size = new System.Drawing.Size(121, 21);
             this.cboSlices.TabIndex = 8;
+            this.cboSlices.SelectedIndexChanged += new System.EventHandler(this.cboPizzaSize_SelectedIndexChanged);
             // 
             // lblSlices
             // 

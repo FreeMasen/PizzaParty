@@ -32,6 +32,7 @@ namespace PizzaPartyPlanner
             {
                 SaveFileDialog saveFile = new SaveFileDialog();
                 saveFile.Filter = "Text (*.txt)|*.txt";
+                saveFile.DefaultExt = "txt";
                 saveFile.ShowDialog();
                 string path = saveFile.FileName;
                 File.WriteAllText(path, txtReport.Text);

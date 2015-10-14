@@ -36,7 +36,7 @@
             this.cboPizzaType = new System.Windows.Forms.ComboBox();
             this.lblPizzaType = new System.Windows.Forms.Label();
             this.brnAdd = new System.Windows.Forms.Button();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.grpToppings = new System.Windows.Forms.GroupBox();
             this.ckbArtichoke = new System.Windows.Forms.CheckBox();
             this.ckbOlives = new System.Windows.Forms.CheckBox();
             this.ckbOions = new System.Windows.Forms.CheckBox();
@@ -59,13 +59,15 @@
             this.lblTotal = new System.Windows.Forms.Label();
             this.lstPizzaType = new System.Windows.Forms.ListBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtDisplayNotes = new System.Windows.Forms.TextBox();
+            this.btnClear = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.grpToppings.SuspendLayout();
             this.SuspendLayout();
             // 
             // cboPizzaSize
             // 
+            this.cboPizzaSize.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboPizzaSize.FormattingEnabled = true;
             this.cboPizzaSize.Items.AddRange(new object[] {
             "Small",
@@ -75,6 +77,7 @@
             this.cboPizzaSize.Name = "cboPizzaSize";
             this.cboPizzaSize.Size = new System.Drawing.Size(121, 21);
             this.cboPizzaSize.TabIndex = 0;
+            this.cboPizzaSize.SelectedIndexChanged += new System.EventHandler(this.cboPizzaSize_SelectedIndexChanged);
             // 
             // rdoBYO
             // 
@@ -120,6 +123,7 @@
             // 
             // cboPizzaType
             // 
+            this.cboPizzaType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboPizzaType.FormattingEnabled = true;
             this.cboPizzaType.Items.AddRange(new object[] {
             "Surpreme",
@@ -133,6 +137,7 @@
             this.cboPizzaType.Name = "cboPizzaType";
             this.cboPizzaType.Size = new System.Drawing.Size(121, 21);
             this.cboPizzaType.TabIndex = 5;
+            this.cboPizzaType.SelectedIndexChanged += new System.EventHandler(this.cboPizzaSize_SelectedIndexChanged);
             // 
             // lblPizzaType
             // 
@@ -153,24 +158,24 @@
             this.brnAdd.UseVisualStyleBackColor = true;
             this.brnAdd.Click += new System.EventHandler(this.brnAdd_Click);
             // 
-            // groupBox2
+            // grpToppings
             // 
-            this.groupBox2.Controls.Add(this.ckbArtichoke);
-            this.groupBox2.Controls.Add(this.ckbOlives);
-            this.groupBox2.Controls.Add(this.ckbOions);
-            this.groupBox2.Controls.Add(this.ckbPeppers);
-            this.groupBox2.Controls.Add(this.ckbMushrooms);
-            this.groupBox2.Controls.Add(this.ckbBeef);
-            this.groupBox2.Controls.Add(this.ckbBacon);
-            this.groupBox2.Controls.Add(this.ckbHam);
-            this.groupBox2.Controls.Add(this.ckbSausage);
-            this.groupBox2.Controls.Add(this.ckbPep);
-            this.groupBox2.Location = new System.Drawing.Point(277, 20);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(221, 151);
-            this.groupBox2.TabIndex = 3;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Toppings sm-$0.25, md-$0.50 lg-$0.75";
+            this.grpToppings.Controls.Add(this.ckbArtichoke);
+            this.grpToppings.Controls.Add(this.ckbOlives);
+            this.grpToppings.Controls.Add(this.ckbOions);
+            this.grpToppings.Controls.Add(this.ckbPeppers);
+            this.grpToppings.Controls.Add(this.ckbMushrooms);
+            this.grpToppings.Controls.Add(this.ckbBeef);
+            this.grpToppings.Controls.Add(this.ckbBacon);
+            this.grpToppings.Controls.Add(this.ckbHam);
+            this.grpToppings.Controls.Add(this.ckbSausage);
+            this.grpToppings.Controls.Add(this.ckbPep);
+            this.grpToppings.Location = new System.Drawing.Point(277, 20);
+            this.grpToppings.Name = "grpToppings";
+            this.grpToppings.Size = new System.Drawing.Size(221, 151);
+            this.grpToppings.TabIndex = 3;
+            this.grpToppings.TabStop = false;
+            this.grpToppings.Text = "Toppings sm-$0.25, md-$0.50 lg-$0.75";
             // 
             // ckbArtichoke
             // 
@@ -181,6 +186,7 @@
             this.ckbArtichoke.TabIndex = 9;
             this.ckbArtichoke.Text = "Artichoke";
             this.ckbArtichoke.UseVisualStyleBackColor = true;
+            this.ckbArtichoke.CheckedChanged += new System.EventHandler(this.checkbos);
             // 
             // ckbOlives
             // 
@@ -191,6 +197,7 @@
             this.ckbOlives.TabIndex = 8;
             this.ckbOlives.Text = "Olives";
             this.ckbOlives.UseVisualStyleBackColor = true;
+            this.ckbOlives.CheckedChanged += new System.EventHandler(this.checkbos);
             // 
             // ckbOions
             // 
@@ -201,6 +208,7 @@
             this.ckbOions.TabIndex = 7;
             this.ckbOions.Text = "Onions";
             this.ckbOions.UseVisualStyleBackColor = true;
+            this.ckbOions.CheckedChanged += new System.EventHandler(this.checkbos);
             // 
             // ckbPeppers
             // 
@@ -211,6 +219,7 @@
             this.ckbPeppers.TabIndex = 6;
             this.ckbPeppers.Text = "Peppers";
             this.ckbPeppers.UseVisualStyleBackColor = true;
+            this.ckbPeppers.CheckedChanged += new System.EventHandler(this.checkbos);
             // 
             // ckbMushrooms
             // 
@@ -221,6 +230,7 @@
             this.ckbMushrooms.TabIndex = 5;
             this.ckbMushrooms.Text = "Mushrooms";
             this.ckbMushrooms.UseVisualStyleBackColor = true;
+            this.ckbMushrooms.CheckedChanged += new System.EventHandler(this.checkbos);
             // 
             // ckbBeef
             // 
@@ -231,6 +241,7 @@
             this.ckbBeef.TabIndex = 4;
             this.ckbBeef.Text = "Beef";
             this.ckbBeef.UseVisualStyleBackColor = true;
+            this.ckbBeef.CheckedChanged += new System.EventHandler(this.checkbos);
             // 
             // ckbBacon
             // 
@@ -241,6 +252,7 @@
             this.ckbBacon.TabIndex = 3;
             this.ckbBacon.Text = "Bacon";
             this.ckbBacon.UseVisualStyleBackColor = true;
+            this.ckbBacon.CheckedChanged += new System.EventHandler(this.checkbos);
             // 
             // ckbHam
             // 
@@ -251,6 +263,7 @@
             this.ckbHam.TabIndex = 2;
             this.ckbHam.Text = "Ham";
             this.ckbHam.UseVisualStyleBackColor = true;
+            this.ckbHam.CheckedChanged += new System.EventHandler(this.checkbos);
             // 
             // ckbSausage
             // 
@@ -261,6 +274,7 @@
             this.ckbSausage.TabIndex = 1;
             this.ckbSausage.Text = "Sausage";
             this.ckbSausage.UseVisualStyleBackColor = true;
+            this.ckbSausage.CheckedChanged += new System.EventHandler(this.checkbos);
             // 
             // ckbPep
             // 
@@ -271,9 +285,11 @@
             this.ckbPep.TabIndex = 0;
             this.ckbPep.Text = "Peproni";
             this.ckbPep.UseVisualStyleBackColor = true;
+            this.ckbPep.CheckedChanged += new System.EventHandler(this.checkbos);
             // 
             // cboSlices
             // 
+            this.cboSlices.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboSlices.FormattingEnabled = true;
             this.cboSlices.Items.AddRange(new object[] {
             "4",
@@ -284,6 +300,7 @@
             this.cboSlices.Name = "cboSlices";
             this.cboSlices.Size = new System.Drawing.Size(121, 21);
             this.cboSlices.TabIndex = 8;
+            this.cboSlices.SelectedIndexChanged += new System.EventHandler(this.cboPizzaSize_SelectedIndexChanged);
             // 
             // lblSlices
             // 
@@ -331,9 +348,9 @@
             // 
             // btnReport
             // 
-            this.btnReport.Location = new System.Drawing.Point(12, 519);
+            this.btnReport.Location = new System.Drawing.Point(239, 488);
             this.btnReport.Name = "btnReport";
-            this.btnReport.Size = new System.Drawing.Size(127, 23);
+            this.btnReport.Size = new System.Drawing.Size(98, 44);
             this.btnReport.TabIndex = 15;
             this.btnReport.Text = "Create Report";
             this.btnReport.UseVisualStyleBackColor = true;
@@ -341,18 +358,18 @@
             // 
             // btnRemove
             // 
-            this.btnRemove.Location = new System.Drawing.Point(202, 519);
+            this.btnRemove.Location = new System.Drawing.Point(12, 488);
             this.btnRemove.Name = "btnRemove";
-            this.btnRemove.Size = new System.Drawing.Size(75, 23);
+            this.btnRemove.Size = new System.Drawing.Size(83, 44);
             this.btnRemove.TabIndex = 16;
-            this.btnRemove.Text = "Remove";
+            this.btnRemove.Text = "Remove Selected";
             this.btnRemove.UseVisualStyleBackColor = true;
             this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(423, 524);
+            this.label3.Location = new System.Drawing.Point(417, 488);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(31, 13);
             this.label3.TabIndex = 17;
@@ -361,7 +378,7 @@
             // lblTotal
             // 
             this.lblTotal.AutoSize = true;
-            this.lblTotal.Location = new System.Drawing.Point(482, 524);
+            this.lblTotal.Location = new System.Drawing.Point(492, 488);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(34, 13);
             this.lblTotal.TabIndex = 18;
@@ -385,20 +402,30 @@
             this.label4.TabIndex = 20;
             this.label4.Text = "Pizza";
             // 
-            // textBox2
+            // txtDisplayNotes
             // 
-            this.textBox2.Location = new System.Drawing.Point(239, 296);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(287, 186);
-            this.textBox2.TabIndex = 21;
+            this.txtDisplayNotes.Location = new System.Drawing.Point(239, 296);
+            this.txtDisplayNotes.Multiline = true;
+            this.txtDisplayNotes.Name = "txtDisplayNotes";
+            this.txtDisplayNotes.Size = new System.Drawing.Size(287, 186);
+            this.txtDisplayNotes.TabIndex = 21;
+            // 
+            // btnClear
+            // 
+            this.btnClear.Location = new System.Drawing.Point(137, 488);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(75, 44);
+            this.btnClear.TabIndex = 22;
+            this.btnClear.Text = "Remove All";
+            this.btnClear.UseVisualStyleBackColor = true;
             // 
             // frmPizzaParty
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(529, 573);
-            this.Controls.Add(this.textBox2);
+            this.ClientSize = new System.Drawing.Size(529, 546);
+            this.Controls.Add(this.btnClear);
+            this.Controls.Add(this.txtDisplayNotes);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.lstPizzaType);
             this.Controls.Add(this.lblTotal);
@@ -411,7 +438,7 @@
             this.Controls.Add(this.txtNotes);
             this.Controls.Add(this.lblSlices);
             this.Controls.Add(this.cboSlices);
-            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.grpToppings);
             this.Controls.Add(this.brnAdd);
             this.Controls.Add(this.lblPizzaType);
             this.Controls.Add(this.cboPizzaType);
@@ -422,8 +449,8 @@
             this.Text = "Pizza Party Planner";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.grpToppings.ResumeLayout(false);
+            this.grpToppings.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -439,7 +466,7 @@
         private System.Windows.Forms.ComboBox cboPizzaType;
         private System.Windows.Forms.Label lblPizzaType;
         private System.Windows.Forms.Button brnAdd;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox grpToppings;
         private System.Windows.Forms.CheckBox ckbPep;
         private System.Windows.Forms.ComboBox cboSlices;
         private System.Windows.Forms.Label lblSlices;
@@ -462,7 +489,8 @@
         private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.ListBox lstPizzaType;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtDisplayNotes;
+        private System.Windows.Forms.Button btnClear;
     }
 }
 
